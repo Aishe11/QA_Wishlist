@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 namespace atFrameWork2.PageObjects
 {
-    public class CreateEventFrame
+    public class EventFrame
     {
         public PortalEventPage AddNewEvent(WishlistEvent eventData)
         {

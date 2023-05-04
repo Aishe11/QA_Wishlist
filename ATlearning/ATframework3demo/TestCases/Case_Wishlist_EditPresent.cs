@@ -3,7 +3,7 @@ using atFrameWork2.BaseFramework.LogTools;
 using atFrameWork2.PageObjects;
 using atFrameWork2.SeleniumFramework;
 using atFrameWork2.TestEntities;
-using ATframework3demo.PageObjects;
+
 
 namespace ATframework3demo.TestCases
 {
@@ -20,7 +20,7 @@ namespace ATframework3demo.TestCases
         {
             var EventData = new WishlistEvent("Название мероприятия " + DateTime.Now, DateTime.Now.AddDays(7).ToString("dd-MM-yyyy"));
             var PresentData = new WishlistPresent("Название подарка " + DateTime.Now, "Ссылка", "Какое-то описание");
-            var EditedPresentData = new WishlistPresent("Измененное название подарка" + DateTime.Now, "Измененная ссылка", "Какое-то измененное описание");
+            var EditedPresentData = new WishlistPresent("Измененное название подарка " + DateTime.Now, "Измененная ссылка", "Какое-то измененное описание");
 
             var CreateEvent = homePage
                 .EventPage
@@ -47,12 +47,12 @@ namespace ATframework3demo.TestCases
             // обновляем страницу
             // ищем элемент с переданным именем
 
-            /*            bool isPresentAppeared = CreateEvent.IsPresentAppeared();
-                        if (isPresentAppeared == false)
-                        {
-                            Log.Error("Пост не появился в ленте новостей");
-            */
-            /*            }*/
+            bool isPresentNameExist = EditPresent.IsPresentNameExist(EditedPresentData.Title);
+            if (isPresentNameExist == false)
+            {
+                Log.Error($"Подарка с названием {EditedPresentData.Title} нет");
+
+            }
 
 
         }

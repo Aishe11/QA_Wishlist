@@ -1,5 +1,4 @@
 ﻿using atFrameWork2.SeleniumFramework;
-using ATframework3demo.PageObjects;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -10,11 +9,11 @@ namespace atFrameWork2.PageObjects
     public class PortalEventPage
     {
 
-        public CreateEventFrame ClickButtonAddEvent()
+        public EventFrame ClickButtonAddEvent()
         {
             var menuHeader = new WebItem("//a[@id='form-btn']", "Кнопка Создать мероприятие");
             menuHeader.Click();
-            return new CreateEventFrame();
+            return new EventFrame();
         }
 
 
@@ -24,5 +23,6 @@ namespace atFrameWork2.PageObjects
             menuHeader.Click();
             return new EventGiftPage();
         }
-    }
+
+      }
 }

@@ -30,5 +30,21 @@ namespace atFrameWork2.PageObjects
             btnEditPresent.Click();
             return new EventGiftPage();
         }
+
+        internal bool IsPresentNameExist(string title, IWebDriver driver = default)
+        {
+            var PresentTitleElement = new WebItem($"//div[contains(text(), '{title}')]", "Поиск подарка с заданным заголовком");
+            PresentTitleElement.WaitWhileElementDisplayed(3);
+            return PresentTitleElement.GetAttribute("title", driver) == title;
+
+        }
+
+        internal bool IsPresentNameNotExist(string title, IWebDriver driver = default)
+        {
+            var PresentTitleElement = new WebItem($"//div[contains(text(), '{title}')]", "Поиск подарка с заданным заголовком");
+            return !PresentTitleElement.WaitWhileElementDisplayed();
+
+        }
+
     }
 }
