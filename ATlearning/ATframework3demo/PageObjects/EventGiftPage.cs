@@ -34,7 +34,6 @@ namespace atFrameWork2.PageObjects
         internal bool IsPresentNameExist(string title, IWebDriver driver = default)
         {
             var PresentTitleElement = new WebItem($"//div[contains(text(), '{title}')]", "Поиск подарка с заданным заголовком");
-            PresentTitleElement.WaitWhileElementDisplayed(3);
             return PresentTitleElement.GetAttribute("title", driver) == title;
 
         }
@@ -46,5 +45,18 @@ namespace atFrameWork2.PageObjects
 
         }
 
+        public EventGiftPage ClickReservePresent(string title)
+        {
+            var btnReservePresent = new WebItem($"//div[@class='gift-title' and @title='{title}']/ancestor::div[@class='gift-item']//button[@title='Бронировать']", "Кнопка забронировать подарок");
+            btnReservePresent.Click();
+            return new EventGiftPage();
+        }
+
+        internal object ClickCancelReservePresent(string title)
+        {
+            var btnUneservePresent = new WebItem($"//div[@class='gift-title' and @title='{title}']/ancestor::div[@class='gift-item']//button[@title='Отказаться']", "Кнопка Отказаться от подарка");
+            btnUneservePresent.Click();
+            return new EventGiftPage();
+        }
     }
 }

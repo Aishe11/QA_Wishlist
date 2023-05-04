@@ -1,4 +1,5 @@
 ﻿using atFrameWork2.SeleniumFramework;
+using atFrameWork2.TestEntities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,31 @@ namespace atFrameWork2.PageObjects
 
         public EventFrame ClickButtonAddEvent()
         {
-            var menuHeader = new WebItem("//a[@id='form-btn']", "Кнопка Создать мероприятие");
-            menuHeader.Click();
+            var btnAddEvent = new WebItem("//a[@id='form-btn']", "Кнопка Создать мероприятие");
+            btnAddEvent.Click();
             return new EventFrame();
         }
 
 
         public EventGiftPage OpenCreatedEvent(string title)
         {
-            var menuHeader = new WebItem($"//a[@class='event-title' and text()='{title}']", "Кнопка открытия мероприятия");
-            menuHeader.Click();
+            var btnOpenEvent = new WebItem($"//a[@class='event-title' and text()='{title}']", "Кнопка открытия мероприятия");
+            btnOpenEvent.Click();
             return new EventGiftPage();
         }
 
-      }
+        public InviteUserFrame ClickButtonInviteUser(string title)
+        {
+            var btnInviteUserToEvent = new WebItem($"//a[@class='event-title' and text()='{title}']/ancestor::div[contains(@class, 'event-item')]/descendant::a[@data-role='invite']", "Кнопка приглашения друга");
+            btnInviteUserToEvent.Click();
+            return new InviteUserFrame();
+        }
+
+        public FriendsEventsPage ClickFriendEvent()
+        {
+            var btnInviteUserToEvent = new WebItem("//a[text()='Мероприятия друзей']", "Кнопка Мероприятия друзей");
+            btnInviteUserToEvent.Click();
+            return new FriendsEventsPage();
+        }
+    }
 }

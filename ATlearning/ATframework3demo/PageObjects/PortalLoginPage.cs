@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace atFrameWork2.PageObjects
 {
-    class PortalLoginPage
+    public class PortalLoginPage
     {
         PortalInfo portalInfo;
 
