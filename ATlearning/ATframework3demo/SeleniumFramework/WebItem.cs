@@ -16,6 +16,8 @@ namespace atFrameWork2.SeleniumFramework
     class WebItem
     {
         public static IWebDriver _defaultDriver = default;
+        private string v;
+
         public static IWebDriver DefaultDriver
         {
             get
@@ -40,6 +42,11 @@ namespace atFrameWork2.SeleniumFramework
         {
             XPathLocators = xpathLocators;
             Description = description;
+        }
+
+        public WebItem(string v)
+        {
+            this.v = v;
         }
 
         public void Click(IWebDriver driver = default)

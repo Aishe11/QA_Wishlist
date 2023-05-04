@@ -4,14 +4,15 @@ using System.Text;
 
 namespace atFrameWork2.TestEntities
 {
-    public class Bitrix24Task
+    public class WishlistEvent
     {
-        public Bitrix24Task(string title)
+        public WishlistEvent(string title, string date)
         {
             Title = title ?? throw new ArgumentNullException(nameof(title));
+            Date = date ?? throw new ArgumentNullException(nameof(date));
         }
 
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string Date { get; set; }
     }
 }

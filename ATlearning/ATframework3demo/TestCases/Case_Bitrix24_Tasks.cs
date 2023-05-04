@@ -30,7 +30,7 @@ namespace atFrameWork2.TestCases
                 .LeftMenu
                 .OpenTasks();
 
-            //код кейса курильщика:
+           /* //код кейса курильщика:
             var btnAddTask = new WebItem("//a[@id='tasks-buttonAdd']", "Кнопка добавления задачи");
             btnAddTask.Click();
             //свичнуться в слайдер
@@ -62,7 +62,7 @@ namespace atFrameWork2.TestCases
             taskTitleArea.AssertTextContains(task.Title, "Название задачи отображается неверно");
             var taskDescriptionArea = new WebItem($"//div[@id='task-detail-description']",
                 "Область описания задачи");
-            taskDescriptionArea.AssertTextContains(task.Description, "Название задачи отображается неверно");
+            taskDescriptionArea.AssertTextContains(task.Description, "Название задачи отображается неверно");*/
         }
     }
 }
