@@ -25,9 +25,9 @@ namespace atFrameWork2.PageObjects
         public EventGiftPage ClickButtonDeletePresent(string title)
         {
 
-            var btnEditPresent = new WebItem($"//div[@class='gift-title' and @title='{title}']/ancestor::div[@class='gift-item']//button[@title='Удалить']", "Кнопка Удалить");
-            btnEditPresent.WaitElementDisplayed();
-            btnEditPresent.Click();
+            var btnDeletePresent = new WebItem($"//div[@class='gift-title' and @title='{title}']/ancestor::div[@class='gift-item']//button[@title='Удалить']", "Кнопка Удалить");
+            btnDeletePresent.WaitElementDisplayed();
+            btnDeletePresent.Click();
             return new EventGiftPage();
         }
 

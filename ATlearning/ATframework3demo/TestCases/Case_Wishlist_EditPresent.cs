@@ -12,11 +12,11 @@ namespace ATframework3demo.TestCases
         protected override List<TestCase> GetCases()
         {
             var caseCollection = new List<TestCase>();
-            caseCollection.Add(new TestCase("Изменение подарка", homePage => MadeEventWithEditedPresent(homePage)));
+            caseCollection.Add(new TestCase("Изменение подарка", homePage => EditPresent(homePage)));
             return caseCollection;
         }
 
-        void MadeEventWithEditedPresent(PortalHomePage homePage)
+        void EditPresent(PortalHomePage homePage)
         {
             var EventData = new WishlistEvent("Название мероприятия " + DateTime.Now, DateTime.Now.AddDays(7).ToString("dd-MM-yyyy"));
             var PresentData = new WishlistPresent("Название подарка " + DateTime.Now, "Ссылка", "Какое-то описание");

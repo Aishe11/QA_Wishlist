@@ -25,8 +25,8 @@ namespace atFrameWork2.PageObjects
 
         public ReservedPresentsPage ReservedPresent()
         {
-            var btnOpenEventPage = new WebItem("//a[@class='header-btn' and text()= 'Подарки']", "Кнопка открытия вкладки Подарки");
-            btnOpenEventPage.Click();
+            var btnReservedPresentPage = new WebItem("//a[@class='header-btn' and text()= 'Подарки']", "Кнопка открытия вкладки Подарки");
+            btnReservedPresentPage.Click();
             return new ReservedPresentsPage();
         }
     }

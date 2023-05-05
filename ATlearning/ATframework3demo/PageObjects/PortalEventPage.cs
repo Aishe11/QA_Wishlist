@@ -34,8 +34,8 @@ namespace atFrameWork2.PageObjects
 
         public FriendsEventsPage ClickFriendEvent()
         {
-            var btnInviteUserToEvent = new WebItem("//a[text()='Мероприятия друзей']", "Кнопка Мероприятия друзей");
-            btnInviteUserToEvent.Click();
+            var btnFriendEvent = new WebItem("//a[text()='Мероприятия друзей']", "Кнопка Мероприятия друзей");
+            btnFriendEvent.Click();
             return new FriendsEventsPage();
         }
     }
