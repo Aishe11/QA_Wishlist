@@ -31,10 +31,8 @@ namespace ATframework3demo.TestCases
                     .AboveMenu
                     // выход с аккаунта
                     .ClickLogout(testPortal)
-
                     //переключиться на вкладку регистрация
                     .ClickRegistration()
-
                     // передача данных о пользователе и регистрация(нажатие enter после каждого заполненного поля) 
                     .RegistrateNewUser(NewUser);
 
@@ -45,7 +43,6 @@ namespace ATframework3demo.TestCases
             if (isUserLoginExist == false)
             {
                 Log.Error($"Пользователь с именем {NewUser.Login} не был зарегистрирован");
-
             }
         }
     }

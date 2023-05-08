@@ -47,7 +47,6 @@ namespace ATframework3demo.TestCases
             if (isPresentNameNotExist == false)
             {
                 Log.Error($"Подарок с названием{PresentData.Title} не был удален") ;
-
             }
         }
     }

@@ -84,7 +84,6 @@ namespace ATframework3demo.TestCases
             if (isPresentReserved == false)
             {
                 Log.Error($"Подарок с названием {PresentData.Title} не был зарезервирован");
-
             }
         }
     }

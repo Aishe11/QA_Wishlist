@@ -7,6 +7,9 @@ namespace atFrameWork2.PageObjects
     public class EventFrame
     {
 
+        /// <summary>
+        /// Фрейм добавления нового мероприятия
+        /// </summary>
         public PortalEventPage AddNewEvent(WishlistEvent eventData)
         {
 

@@ -6,6 +6,9 @@ namespace atFrameWork2.PageObjects
 {
     public class InviteUserFrame
     {
+        /// <summary>
+        /// Приглашение пользователя на мероприятие. Переключение на фрейм слайдера
+        /// </summary>
         public InviteUserFrame InviteUser(string login)
         {
             var sliderFrame = new WebItem("//iframe[@class='side-panel-iframe']", "Фрейм слайдера");
@@ -19,6 +22,9 @@ namespace atFrameWork2.PageObjects
             return new InviteUserFrame();
         }
 
+        /// <summary>
+        /// Закрытие слайдера с приглашением пользователя на мероприятие.
+        /// </summary>
         public PortalEventPage ClickCloseFrame()
         {
 

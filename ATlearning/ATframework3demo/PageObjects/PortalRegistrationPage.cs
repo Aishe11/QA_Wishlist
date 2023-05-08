@@ -6,6 +6,9 @@ namespace atFrameWork2.PageObjects
 {
     public class PortalRegistrationPage
     {
+        /// <summary>
+        /// Регистрация нового пользователя. Заполняемые поля: почта, логин, пароль 
+        /// </summary>
         public PortalEventPage RegistrateNewUser (RegistrationInfo newUser)
         {
             var emailField = new WebItem("//input[@id='email']", "Поле для ввода почты");

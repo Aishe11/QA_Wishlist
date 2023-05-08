@@ -34,6 +34,9 @@ namespace atFrameWork2.PageObjects
             return new PortalHomePage();
         }
 
+        /// <summary>
+        /// Авторизация другого пользователя.
+        /// </summary>
         public PortalHomePage ReLogin(User admin)
         {
             var loginField = new WebItem("//input[@id='login']", "Поле для ввода логина");
@@ -47,9 +50,12 @@ namespace atFrameWork2.PageObjects
             return new PortalHomePage();
         }
 
+        /// <summary>
+        /// Клик на кнопку Регистрация
+        /// </summary>
         public PortalRegistrationPage ClickRegistration()
         {
-            var btnRegistration = new WebItem("//a[@href='/register/']", "Кнопка выхода с аккаунта");
+            var btnRegistration = new WebItem("//a[@href='/register/']", "Кнопка Регистрация");
             btnRegistration.Click();
             return new PortalRegistrationPage();
         }

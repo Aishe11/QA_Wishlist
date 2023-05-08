@@ -38,7 +38,6 @@ namespace ATframework3demo.TestCases
 
 
             // Проверка что подарок появился
-            // обновляем страницу
             // ищем элемент с переданным именем
 
             bool isPresentNameExist = AddPresent.IsPresentNameExist(PresentData.Title);

@@ -5,6 +5,10 @@ namespace atFrameWork2.PageObjects
 {
     public class EventGiftPage
     {
+
+        /// <summary>
+        /// Клик на кнопку "Добавить подарок"
+        /// </summary>
         public GiftFrame ClickButtonAddPresent()
         {
             var btnAddPresent = new WebItem("//a[@id='form-dtn']", "Кнопка Добавить подарок");
@@ -12,6 +16,10 @@ namespace atFrameWork2.PageObjects
             return new GiftFrame();
         }
 
+
+        /// <summary>
+        /// Клик на кнопку "Редактировать подарок" 
+        /// </summary>
         public GiftFrame ClickButtonEditPresent(string title)
         {
 
@@ -22,6 +30,9 @@ namespace atFrameWork2.PageObjects
         }
 
 
+        /// <summary>
+        /// Клик на кнопку "Удалить подарок"
+        /// </summary>
         public EventGiftPage ClickButtonDeletePresent(string title)
         {
 
@@ -31,6 +42,11 @@ namespace atFrameWork2.PageObjects
             return new EventGiftPage();
         }
 
+
+
+        /// <summary>
+        /// Проверка наличия подарка с переданным названием. В случае если находит возвращается true.
+        /// </summary>
         internal bool IsPresentNameExist(string title, IWebDriver driver = default)
         {
             var PresentTitleElement = new WebItem($"//div[contains(text(), '{title}')]", "Поиск подарка с заданным заголовком");
@@ -38,6 +54,9 @@ namespace atFrameWork2.PageObjects
 
         }
 
+        /// <summary>
+        /// Проверка отсутствия подарка с переданным названием. Возвращается true если подарок не найден.
+        /// </summary>
         internal bool IsPresentNameNotExist(string title, IWebDriver driver = default)
         {
             var PresentTitleElement = new WebItem($"//div[contains(text(), '{title}')]", "Поиск подарка с заданным заголовком");
@@ -45,6 +64,10 @@ namespace atFrameWork2.PageObjects
 
         }
 
+
+        /// <summary>
+        /// Клик на Бронировать подарок. Бронь подарка с переданным в метод названием
+        /// </summary>
         public EventGiftPage ClickReservePresent(string title)
         {
             var btnReservePresent = new WebItem($"//div[@class='gift-title' and @title='{title}']/ancestor::div[@class='gift-item']//button[@title='Бронировать']", "Кнопка забронировать подарок");
@@ -52,6 +75,9 @@ namespace atFrameWork2.PageObjects
             return new EventGiftPage();
         }
 
+        /// <summary>
+        /// Клик на Отказаться от брони подарка с переданным в метод названием
+        /// </summary>
         internal object ClickCancelReservePresent(string title)
         {
             var btnUneservePresent = new WebItem($"//div[@class='gift-title' and @title='{title}']/ancestor::div[@class='gift-item']//button[@title='Отказаться']", "Кнопка Отказаться от подарка");

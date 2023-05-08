@@ -10,8 +10,15 @@ namespace atFrameWork2.PageObjects
     public class PortalHomePage
     {
 
+        /// <summary>
+        /// Страница со всеми мероприятиями
+        /// </summary>
         public PortalEventPage EventPage => new PortalEventPage();
 
+
+        /// <summary>
+        /// Верхнее меню
+        /// </summary>
         public PortalAboveMenu AboveMenu => new PortalAboveMenu();
     }
 }

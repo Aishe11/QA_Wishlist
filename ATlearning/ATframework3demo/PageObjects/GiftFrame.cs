@@ -6,7 +6,9 @@ namespace atFrameWork2.PageObjects
 {
     public class GiftFrame
     {
-
+        /// <summary>
+        /// Добавление подарка(название, ссылка, описание).Самообновляется после выполнения.Работа с фреймом(переключение на него и обратно)
+        /// </summary>
         public EventGiftPage AddPresent(WishlistPresent presentData)
         {
             var sliderFrame = new WebItem("//iframe[@class='side-panel-iframe']", "Фрейм слайдера");
@@ -31,6 +33,10 @@ namespace atFrameWork2.PageObjects
 
         }
 
+        /// <summary>
+        /// Изменение существующего подарка(название, ссылка, описание).Самообновляется после выполнения.
+        /// Работа с фреймом(переключение на него и обратно)
+        /// </summary>
         public EventGiftPage EditPresent(WishlistPresent presentData)
         {
             var sliderFrame = new WebItem("//iframe[@class='side-panel-iframe']", "Фрейм слайдера");

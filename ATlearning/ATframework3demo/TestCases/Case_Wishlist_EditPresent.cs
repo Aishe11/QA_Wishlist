@@ -51,7 +51,6 @@ namespace ATframework3demo.TestCases
             if (isPresentNameExist == false)
             {
                 Log.Error($"Подарка с названием {EditedPresentData.Title} нет");
-
             }
         }
     }
