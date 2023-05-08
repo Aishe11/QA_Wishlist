@@ -1,4 +1,5 @@
 ﻿using atFrameWork2.SeleniumFramework;
+using atFrameWork2.TestEntities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,11 @@ namespace atFrameWork2.PageObjects
             return new PortalEventPage();
         }
 
-        public PortalHomePage ClickLogout()
+        public PortalLoginPage ClickLogout(PortalInfo testPortal)
         {
             var btnLogout = new WebItem("//a[@class='wish-logout']", "Кнопка выхода с аккаунта");
             btnLogout.Click();
-            return new PortalHomePage();
+            return new PortalLoginPage(testPortal); // передача аргумента testPortal
         }
 
 

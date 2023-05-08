@@ -17,7 +17,5 @@ namespace atFrameWork2.PageObjects
             var PresentTitleElement = new WebItem($"//div[@class='gift-title' and text()='{title}']", "Поиск подарка с заданным заголовком");
             return !PresentTitleElement.WaitWhileElementDisplayed();
         }
-
-
     }
 }

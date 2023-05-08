@@ -23,18 +23,18 @@ namespace ATframework3demo.TestCases
 
             var CreateEvent = homePage
                 .EventPage
-                  // клик на добавить мероприятие
-                  .ClickButtonAddEvent()
-                  // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
-                  .AddNewEvent(EventData);
+                // клик на добавить мероприятие
+                .ClickButtonAddEvent()
+                // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
+                .AddNewEvent(EventData);
 
             var AddPresent = CreateEvent
-                  // Открытие на мероприятия
-                  .OpenCreatedEvent(EventData.Title)
-                  // Клик на добавитьь подарок
-                  .ClickButtonAddPresent()
-                  // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
-                  .AddPresent(PresentData);
+                // Открытие на мероприятия
+                .OpenCreatedEvent(EventData.Title)
+                // Клик на добавитьь подарок
+                .ClickButtonAddPresent()
+                // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
+                .AddPresent(PresentData);
 
             var DeletePresent = AddPresent
                 .ClickButtonDeletePresent(PresentData.Title);
@@ -49,8 +49,6 @@ namespace ATframework3demo.TestCases
                 Log.Error($"Подарок с названием{PresentData.Title} не был удален") ;
 
             }
-
-
         }
     }
 }

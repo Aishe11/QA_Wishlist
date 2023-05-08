@@ -1,4 +1,5 @@
-﻿using atFrameWork2.SeleniumFramework;
+﻿using atFrameWork2.BaseFramework.LogTools;
+using atFrameWork2.SeleniumFramework;
 using atFrameWork2.TestEntities;
 using OpenQA.Selenium;
 using System;
@@ -37,6 +38,13 @@ namespace atFrameWork2.PageObjects
             var btnFriendEvent = new WebItem("//a[text()='Мероприятия друзей']", "Кнопка Мероприятия друзей");
             btnFriendEvent.Click();
             return new FriendsEventsPage();
+        }
+
+        internal bool IsUserLoginExist(string login, IWebDriver driver = default)
+        {
+            var LoginElement = new WebItem($"//div[@class='wish-login' and text()='{login}']", "Поиск имени зарегистированного пользователя");
+            LoginElement.WaitElementDisplayed();
+            return LoginElement.GetAttribute("innerHTML", driver) == login;
         }
     }
 }

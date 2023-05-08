@@ -9,6 +9,8 @@ namespace ATframework3demo.TestCases
 {
     public class Case_Wishlist_CancelBookingPresentAtOpenEvent : CaseCollectionBuilder
     {
+        private PortalInfo testPortal;
+
         protected override List<TestCase> GetCases()
         {
             var caseCollection = new List<TestCase>();
@@ -20,43 +22,43 @@ namespace ATframework3demo.TestCases
         {
             var EventData = new WishlistEvent("Название мероприятия " + DateTime.Now, DateTime.Now.AddDays(7).ToString("dd-MM-yyyy"));
             var PresentData = new WishlistPresent("Название подарка " + DateTime.Now, "Ссылка", "какое-то описание");
-            var InvitedUserInfo = new InvitedUser("admin2", "123456");
+            User user2 = new User();
+            user2.Login = "admin2";
+            user2.Password = "123456";
 
             var CreateEvent = homePage
                 .EventPage
-                  // клик на добавить мероприятие
-                  .ClickButtonAddEvent()
-                  // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
-                  .AddNewEvent(EventData);
+                // клик на добавить мероприятие
+                .ClickButtonAddEvent()
+                // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
+                .AddNewEvent(EventData);
 
             var AddPresent = CreateEvent
-                  // Открытие на мероприятия
-                  .OpenCreatedEvent(EventData.Title)
-                  // Клик на добавитьь подарок
-                  .ClickButtonAddPresent()
-                  // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
-                  .AddPresent(PresentData);
+                // Открытие на мероприятия
+                .OpenCreatedEvent(EventData.Title)
+                // Клик на добавитьь подарок
+                .ClickButtonAddPresent()
+                // переключение фрейма, передача данных и нажатие на Enter, возвращение фрейма
+                .AddPresent(PresentData);
 
             //отправление приглашение на мероприятие:
             var InviteToEvent = homePage
                 .AboveMenu
-                 //возврат к мероприятию(клик на кнопку мероприятия сверху)
-                 .OpenEventsPage()
-                 //клик на пригласить пользователя
-                 .ClickButtonInviteUser(EventData.Title)
+                //возврат к мероприятию(клик на кнопку мероприятия сверху)
+                .OpenEventsPage()
+                //клик на пригласить пользователя
+                .ClickButtonInviteUser(EventData.Title)
                 //ввод логина admin2 +нажатие enter
-                .InviteUser(InvitedUserInfo)
-                 //закрыть фрейм(можно заменить обновлением страницы)
-                 .ClickCloseFrame();
+                .InviteUser(user2.Login)
+                //закрыть фрейм(можно заменить обновлением страницы)
+                .ClickCloseFrame();
 
             var ChangeUsers = homePage
                 .AboveMenu
                 //выход с аккаунта
-                .ClickLogout()
-
+                .ClickLogout(testPortal)
                 //Вход с акаунта admin2
-                //РАЗБЕРИСЬ КАК РАБОТАЕТ ВХОД С САМОГО НАЧАЛА МБ ПОМОЖЕТ КАК-ТО ПЕРЕДЕЛАТЬ.
-                .Login(InvitedUserInfo);
+                .ReLogin(user2);
 
             var AcceptEvent = homePage
                 .EventPage
@@ -66,12 +68,12 @@ namespace ATframework3demo.TestCases
                 .ClickAcceptUserInvitation(EventData.Title);
 
             var ReservePresent = AcceptEvent
-                 //клик на подробнее
-                 .ClickOpenInvitedEvent(EventData.Title)
-                 //клик на бронировать
-                 .ClickReservePresent(PresentData.Title)
-                 //клик на отмена
-                 .ClickCancelReservePresent(PresentData.Title);
+                //клик на подробнее
+                .ClickOpenInvitedEvent(EventData.Title)
+                //клик на бронировать
+                .ClickReservePresent(PresentData.Title)
+                //клик на отмена
+                .ClickCancelReservePresent(PresentData.Title);
 
 
 
